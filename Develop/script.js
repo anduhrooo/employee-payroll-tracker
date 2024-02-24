@@ -2,51 +2,62 @@
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 const employeesArray = [];
+let userInput = true
+
 
 const collectEmployees = function() {
+//while loop so the prompt loops until cancelled
+  while (userInput !== false) {
   const firstName = prompt(`First Name?`)
   const lastName = prompt(`Last Name?`)
   const salary = parseInt(prompt('Salary?'))
-
+//if user does not input a number in the salary prompt, they are berated.
   if (isNaN(salary)) {
     alert(`its a number, ya dingus!`)
     return
     }
-
-
+//group variable
   const employeeData = {
     firstName,
     lastName,
     salary
   }
+//push group data into array
   employeesArray.push(employeeData);
-  if (confirm("do you want to add another employee?")) {
-    collectEmployees()
-  } 
+
+userInput = confirm("do you want to add another employee?")
+
+//if user does not confirm, the while loop breaks
+if (!userInput) {
+  break
+} 
+
+}
   return employeesArray
 } 
+
+
 
 // Display the average salary
 
 const displayAverageSalary = function(employeesArray) {
+//establish a sum variable
   let sumSalary = 0;
   let averageSalary = 0;
   for (let i = 0; i < employeesArray.length; i++) {
+    //sum is equal to total of all employees salaries
     sumSalary += employeesArray[i].salary;
+    //divided by length of array for the average
     averageSalary = sumSalary/employeesArray.length;
   }
   console.log(`The average employee salary between our ${employeesArray.length} employee(s) is $${averageSalary}`)
 }
 
-let randomNum = Math.floor(Math.random() * employeesArray.length)
-
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
+  //pick a random number from total number of employees
   let randomNum = Math.floor(Math.random() * employeesArray.length)
   console.log(`Congratulations to ${employeesArray[randomNum].firstName} ${employeesArray[randomNum].lastName}, our random drawing winner!`)
-  //TODO: Select and display a random employee
-  //TODO: randomly select an element from array
-  //TODO: use template literal string to announce contest winner
 }
 
 /*
