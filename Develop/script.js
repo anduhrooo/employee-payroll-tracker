@@ -33,6 +33,12 @@ if (!userInput) {
 } 
 
 }
+const orderArray = function() {
+  for (let i = 0; i < employeesArray.length; i++) {
+    employeesArray[i].sort();
+  }
+}
+
   return employeesArray
 } 
 
