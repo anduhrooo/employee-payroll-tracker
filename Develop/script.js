@@ -7,42 +7,43 @@ const collectEmployees = function() {
   const firstName = prompt(`First Name?`)
   const lastName = prompt(`Last Name?`)
   const salary = parseInt(prompt('Salary?'))
+
+  if (isNaN(salary)) {
+    alert(`its a number, ya dingus!`)
+    return
+    }
+
+
   const employeeData = {
     firstName,
     lastName,
     salary
   }
   employeesArray.push(employeeData);
-
   if (confirm("do you want to add another employee?")) {
     collectEmployees()
   } 
-    
   return employeesArray
-
 } 
 
-
-
 // Display the average salary
-const sumSalary = 0;
 
 const displayAverageSalary = function(employeesArray) {
-  //TODO: Calculate and display the average salary
-  //TODO: summ up all employee salaries
-  const getSalary = function() {
-    for (i=0; i < employeesArray.length; i++) {
-      sumSalary += parseInt(employeesArray.numSalary[i]);
-    }
+  let sumSalary = 0;
+  let averageSalary = 0;
+  for (let i = 0; i < employeesArray.length; i++) {
+    sumSalary += employeesArray[i].salary;
+    averageSalary = sumSalary/employeesArray.length;
   }
-  
-  //TODO: divid by total number of employees
-  //TODO: log to page, use a template literal string (use backticks) for formattting
+  console.log(`The average employee salary between our ${employeesArray.length} employee(s) is $${averageSalary}`)
 }
 
+let randomNum = Math.floor(Math.random() * employeesArray.length)
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
+  let randomNum = Math.floor(Math.random() * employeesArray.length)
+  console.log(`Congratulations to ${employeesArray[randomNum].firstName} ${employeesArray[randomNum].lastName}, our random drawing winner!`)
   //TODO: Select and display a random employee
   //TODO: randomly select an element from array
   //TODO: use template literal string to announce contest winner
