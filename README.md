@@ -6,7 +6,7 @@ https://anduhrooo.github.io/employee-payroll-tracker/
 
 ## Description
 
-Application takes in user inputs (first name, last name, salary) and places them on a table that displays on page. User is asked if they want to keep adding employees until finished. 
+Application takes in user inputs (first name, last name, salary) and places them in alphabetical order on a table that displays on page. User is asked if they want to keep adding employees until finished. 
 
 In the console, user is presented with an average of the salary amount of the total number of employees and one employee is chosen at random to win a prize.
 
