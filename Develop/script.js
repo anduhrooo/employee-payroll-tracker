@@ -9,12 +9,21 @@ const collectEmployees = function() {
 //while loop so the prompt loops until cancelled
   while (userInput !== false) {
   const firstName = prompt(`First Name?`)
+  if (firstName=== null) {
+    return;
+  }
   const lastName = prompt(`Last Name?`)
+  if (lastName=== null) {
+    return;
+  }
   const salary = parseInt(prompt('Salary?'))
 //if user does not input a number in the salary prompt, they are berated.
   if (isNaN(salary)) {
     alert(`its a number, ya dingus!`)
     return
+    }
+    if (firstName=== null) {
+      return;
     }
 //group variable
   const employeeData = {
